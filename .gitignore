@@ -1,3 +1,7 @@
 build/bin
 node_modules
 frontend/dist
+traffic.log
+app_run_stdout.log
+claude-proxy-pro
+1781476674.png
