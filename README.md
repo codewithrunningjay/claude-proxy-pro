@@ -23,7 +23,10 @@ With **Claude Proxy Pro**, you can instantly route your Claude Code traffic to c
 
 ## 🛠 Installation
 No Node.js. No Python. No dependencies.
-Just download the executable, open it, and you're ready to code.
+Just head over to the [Releases Page](../../releases) and download the pre-compiled version for your system:
+- **macOS:** Download the `.app.zip`, extract it, and drag it to Applications.
+- **Windows:** Download the `.exe` and run it.
+- **Linux:** Download the binary and execute it.
 
 *(Works seamlessly on macOS, Windows, and Linux)*
 
