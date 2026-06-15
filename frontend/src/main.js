@@ -190,6 +190,18 @@ function updateActiveModelText(providers, activeIdx) {
     }
 }
 
+async function restoreNativeClaude() {
+    try {
+        if (!confirm("Are you sure you want to remove the terminal integration and restore native Claude Code behavior?")) return;
+        const msg = await window.go.main.App.RestoreNativeClaude();
+        if (Mascot) Mascot.triggerSuccess("Restored!");
+        alert(msg);
+    } catch (e) {
+        if (Mascot) Mascot.triggerError("Failed!");
+        alert("Failed to restore native Claude: " + e);
+    }
+}
+
 // ── Navigation ───────────────────────────────────────────────────────────────
 function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));

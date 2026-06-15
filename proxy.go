@@ -1814,7 +1814,6 @@ func EnsureTerminalIntegration() {
 
 				lines := strings.Split(string(data), "\n")
 				var newLines []string
-				hasProxyLine := false
 
 				for _, line := range lines {
 					if strings.Contains(line, "ANTHROPIC_BASE_URL") || strings.Contains(line, "Claude Proxy Pro Auto-Injection") {
@@ -1832,6 +1831,76 @@ func EnsureTerminalIntegration() {
 				newLines = append(newLines, "")
 				newLines = append(newLines, "# Claude Proxy Pro Auto-Injection")
 				newLines = append(newLines, exportStr)
+
+				os.WriteFile(path, []byte(strings.Join(newLines, "\n")+"\n"), 0644)
+			}
+		}
+	}
+}
+
+// clearClaudeSettings removes our injected customModels from settings.json
+func clearClaudeSettings() {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return
+	}
+	settingsPath := filepath.Join(home, ".claude", "settings.json")
+	data, err := os.ReadFile(settingsPath)
+	if err != nil {
+		return
+	}
+
+	var settings map[string]interface{}
+	if err := json.Unmarshal(data, &settings); err != nil {
+		return
+	}
+
+	// Remove customModels entirely to restore native Claude Code behavior
+	delete(settings, "customModels")
+
+	newData, err := json.MarshalIndent(settings, "", "  ")
+	if err != nil {
+		return
+	}
+
+	os.WriteFile(settingsPath, newData, 0644)
+}
+
+// RemoveTerminalIntegration cleans up the injected variables from the terminal profile or registry
+func RemoveTerminalIntegration() {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return
+	}
+
+	if runtime.GOOS == "windows" {
+		// Remove environment variable persistently in Windows
+		exec.Command("REG", "DELETE", "HKCU\\Environment", "/v", "ANTHROPIC_BASE_URL", "/f").Run()
+	} else {
+		// macOS / Linux: Cleanly remove from .zshrc and .bashrc
+		files := []string{".zshrc", ".bashrc", ".bash_profile"}
+		for _, f := range files {
+			path := filepath.Join(home, f)
+			if _, err := os.Stat(path); err == nil {
+				data, err := os.ReadFile(path)
+				if err != nil {
+					continue
+				}
+
+				lines := strings.Split(string(data), "\n")
+				var newLines []string
+
+				for _, line := range lines {
+					if strings.Contains(line, "ANTHROPIC_BASE_URL") || strings.Contains(line, "Claude Proxy Pro Auto-Injection") {
+						continue // Filter out our exports
+					}
+					newLines = append(newLines, line)
+				}
+
+				// Trim trailing empty lines
+				for len(newLines) > 0 && strings.TrimSpace(newLines[len(newLines)-1]) == "" {
+					newLines = newLines[:len(newLines)-1]
+				}
 
 				os.WriteFile(path, []byte(strings.Join(newLines, "\n")+"\n"), 0644)
 			}

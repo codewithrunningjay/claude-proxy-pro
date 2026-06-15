@@ -178,6 +178,13 @@ func (a *App) ActivateModel(modelID, providerName string) error {
 	return fmt.Errorf("provider %s not found", providerName)
 }
 
+// RestoreNativeClaude removes all proxy settings and cleans the terminal integration
+func (a *App) RestoreNativeClaude() string {
+	clearClaudeSettings()
+	RemoveTerminalIntegration()
+	return "Successfully restored native Claude Code and removed terminal integration."
+}
+
 // ── Settings Methods ──────────────────────────────────────────────────────────
 
 // UpdateSetting updates a single setting value.
