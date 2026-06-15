@@ -153,21 +153,19 @@ Our Quick-Add presets currently include:
 - **OpenCode Go** (`https://opencode.ai/zen/go/v1`)
 - **Groq**, **Together**, **Ollama**, **Mistral**, and many more!
 
-## 🍎 macOS Gatekeeper
+## 🍎 macOS Gatekeeper (Important!)
 
-If you download the pre-compiled `.app.zip` release using a browser on macOS, Apple's Gatekeeper will quarantine the app because it is self-signed (we don't charge you, so we don't pay Apple $99/year for a certificate).
+If you download the pre-compiled `.app.zip` release on macOS, Apple's Gatekeeper may quarantine the app and tell you **"App is damaged and can't be opened. You should move it to the Trash."** 
 
-To bypass the "Apple could not verify..." warning:
-1. Do not double-click the app.
-2. Instead, **Right-Click** (or Control+Click) on `claude-proxy-pro.app`.
-3. Select **Open** from the context menu.
-4. Click **Open** again on the warning dialog.
+Don't panic! It is **not** damaged. This happens because we are an open-source project and haven't paid Apple $99/year for a Developer Certificate to sign the binary.
 
-Alternatively, you can remove the quarantine flag via terminal:
+**The 3-Second Fix:**
+1. Extract the `.zip` and drag `claude-proxy-pro.app` to your **Applications** folder.
+2. Open your Terminal and paste this exact command to remove the quarantine flag:
 ```bash
 xattr -cr /Applications/claude-proxy-pro.app
 ```
-*(If you compile it locally using `wails build`, you will not face this issue!)*
+3. Open the app from your Applications folder normally. It will run perfectly!
 
 ---
 
