@@ -78,6 +78,10 @@ export function SwitchProvider(arg1) {
   return window['go']['main']['App']['SwitchProvider'](arg1);
 }
 
+export function TestArbitraryProvider(arg1, arg2, arg3, arg4) {
+  return window['go']['main']['App']['TestArbitraryProvider'](arg1, arg2, arg3, arg4);
+}
+
 export function TestProvider(arg1) {
   return window['go']['main']['App']['TestProvider'](arg1);
 }

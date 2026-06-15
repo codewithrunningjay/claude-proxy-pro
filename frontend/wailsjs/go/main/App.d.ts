@@ -40,6 +40,8 @@ export function ShowAlert(arg1:string,arg2:string):Promise<void>;
 
 export function SwitchProvider(arg1:number):Promise<void>;
 
+export function TestArbitraryProvider(arg1:string,arg2:string,arg3:string,arg4:string):Promise<Record<string, any>>;
+
 export function TestProvider(arg1:number):Promise<Record<string, any>>;
 
 export function UpdateProvider(arg1:number,arg2:main.Provider):Promise<void>;
