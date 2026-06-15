@@ -18,7 +18,7 @@ Claude Code is Anthropic's AI coding agent — powerful but expensive. Claude Pr
 <br>
 
 <div align="center">
-  <img src="1781476674.png" alt="Claude Proxy Pro UI" width="700">
+  <img src="docs/assets/hero.png" alt="Claude Proxy Pro UI" width="700">
   <br><br>
   <p align="center">
     <img src="docs/assets/1.png" width="400" />
