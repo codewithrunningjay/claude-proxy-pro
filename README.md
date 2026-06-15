@@ -11,7 +11,7 @@ Use Claude Code CLI, VS Code extensions, or any Anthropic-compatible tool throug
 [![Size](https://img.shields.io/badge/Size-9.7_MB-brightgreen.svg?style=for-the-badge)](#)
 [![RAM](https://img.shields.io/badge/RAM_Usage-~88_MB-blue.svg?style=for-the-badge)](#)
 
-[The Problem](#-the-problem-selling-your-kidney) · [The Solution](#-the-solution-native-dominance) · [Quick Start](#-quick-start) · [Providers](#-supported-providers) · [Local Build](#-build-it-locally-the-hacker-way)
+[The Problem](#-the-problem) · [The Solution](#-the-solution-native-dominance) · [Quick Start](#-quick-start) · [Providers](#-supported-providers) · [Local Build](#-build-it-locally-the-hacker-way)
 
 </div>
 
@@ -24,7 +24,7 @@ Use Claude Code CLI, VS Code extensions, or any Anthropic-compatible tool throug
   <em>*App screenshots coming soon!*</em>
 </div>
 
-## 💸 The Problem: Selling Your Kidney
+## 💸 The Problem
 Let's be honest. Anthropic's Claude Code is arguably the most powerful agentic coding tool available today. It writes code, runs tests, and navigates your codebase like a senior engineer. 
 
 **But there's a massive catch.** 
