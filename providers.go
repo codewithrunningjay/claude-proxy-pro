@@ -87,7 +87,12 @@ func (pm *ProviderManager) DiscoverModels() {
 		latency := int(time.Since(start).Milliseconds())
 
 		if err != nil {
-			// /v1/models failed — try a lightweight ping to see if endpoint is reachable at all
+			// If it's an auth error, don't pretend it's online
+			if strings.Contains(err.Error(), "HTTP 401") || strings.Contains(err.Error(), "HTTP 403") {
+				pm.cfg.UpdateProviderStatus(i, "offline", latency)
+				continue
+			}
+			// /v1/models failed for other reasons — try a lightweight ping
 			if pm.pingProvider(p) {
 				// Endpoint reachable but /v1/models unsupported — mark online with configured model
 				pm.cfg.UpdateProviderStatus(i, "online", latency)
@@ -166,8 +171,9 @@ func (pm *ProviderManager) pingProvider(p Provider) bool {
 		return false
 	}
 	defer resp.Body.Close()
-	// Any HTTP response (even 401/403/404) means the server is reachable
-	return resp.StatusCode < 600
+	// 200 OK means it works. 404 means models endpoint doesn't exist but server is up.
+	// 401/403 means auth failed (so server is up but unusable without valid key).
+	return resp.StatusCode == http.StatusOK || resp.StatusCode == http.StatusNotFound
 }
 
 // fetchModels calls the /v1/models endpoint for a specific provider.

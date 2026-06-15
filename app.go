@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"strings"
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 )
@@ -115,7 +116,10 @@ func (a *App) TestArbitraryProvider(name, pUrl, key, model string) map[string]in
 	status := "online"
 	errMsg := ""
 	if err != nil {
-		if a.pm.pingProvider(p) {
+		if strings.Contains(err.Error(), "HTTP 401") || strings.Contains(err.Error(), "HTTP 403") {
+			status = "offline"
+			errMsg = "Invalid API Key or Unauthorized (Auth Failed)"
+		} else if a.pm.pingProvider(p) {
 			status = "online"
 		} else {
 			status = "offline"
